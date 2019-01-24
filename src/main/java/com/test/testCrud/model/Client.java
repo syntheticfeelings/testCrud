@@ -108,5 +108,7 @@ public class Client {
     public void setFamilies(Set<FamilyTable> families) {
         this.families = families;
     }
+
+    
 }
 

@@ -21,17 +21,30 @@ public class FamilyTable {
     private LastNames familyId;
 
 
-    @OneToMany(mappedBy = "family")
-    private Set<Client> users = new HashSet<>();
-
     public FamilyTable() {
     }
 
-    public Set<Client> getUsers() {
-        return users;
+    public int getId() {
+        return id;
     }
 
-    public void setUsers(Set<Client> users) {
-        this.users = users;
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public Client getClientId() {
+        return clientId;
+    }
+
+    public void setClientId(Client clientId) {
+        this.clientId = clientId;
+    }
+
+    public LastNames getFamilyId() {
+        return familyId;
+    }
+
+    public void setFamilyId(LastNames familyId) {
+        this.familyId = familyId;
     }
 }
