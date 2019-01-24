@@ -8,6 +8,10 @@ import java.util.Set;
 @Table(name = "familyTable")
 public class FamilyTable {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
+
     @ManyToOne
     @JoinColumn(name = "client_id")
     private Client clientId;
