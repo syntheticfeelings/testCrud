@@ -1,6 +1,7 @@
 package com.test.testCrud.model;
 
 import javax.persistence.*;
+import java.util.Set;
 
 
 @Entity
@@ -11,17 +12,26 @@ public class Client {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
+    @Column(name = "first_name")
     private String firstName;
 
+    @Column(name = "last_name")
     private String lastName;
+
+    @Column(name = "date_birth")
     private String dateOfBirth;
+
+    @Column(name = "inn")
     private String INN;
+
+    @Column(name = "family_status")
     private String familyStatus;
+
+    @Column(name = "vip_role")
     private boolean isVip;
 
-    @ManyToOne
-    @JoinColumn(name = "lastName",insertable = false, updatable = false)
-    private Family family;
+    @OneToMany(mappedBy = "clientID")
+    private Set<FamilyTable> families;
 
     public Client() {
     }
@@ -90,4 +100,13 @@ public class Client {
     public void setVip(boolean vip) {
         isVip = vip;
     }
+
+    public Set<FamilyTable> getFamilies() {
+        return families;
+    }
+
+    public void setFamilies(Set<FamilyTable> families) {
+        this.families = families;
+    }
 }
+

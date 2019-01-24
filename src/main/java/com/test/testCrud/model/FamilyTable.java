@@ -5,17 +5,22 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name = "family")
-public class Family {
+@Table(name = "familyTable")
+public class FamilyTable {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    @ManyToOne
+    @JoinColumn(name = "client_id")
+    private Client clientId;
+
+    @ManyToOne
+    @JoinColumn(name = "lastnames_id")
+    private LastNames familyId;
+
 
     @OneToMany(mappedBy = "family")
     private Set<Client> users = new HashSet<>();
 
-    public Family() {
+    public FamilyTable() {
     }
 
     public Set<Client> getUsers() {
