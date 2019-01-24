@@ -49,11 +49,11 @@ public class ClientController {
     }
 
     @RequestMapping(
-            path = "deleteClient",
+            path = "deleteclient",
             method = RequestMethod.POST,
             consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
     @ResponseStatus(HttpStatus.OK)
-    public ResponseEntity logout(@RequestParam("id") int id) {
+    public ResponseEntity delete(@RequestParam("id") int id) {
         clientDAO.deleteById(id);
         return ResponseEntity.ok().build();
     }
