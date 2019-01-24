@@ -30,7 +30,7 @@ public class Client {
     @Column(name = "vip_role")
     private boolean isVip;
 
-    @OneToMany(mappedBy = "clientID")
+    @OneToMany(mappedBy = "clientId")
     private Set<FamilyTable> families;
 
     public Client() {
