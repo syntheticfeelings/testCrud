@@ -34,7 +34,7 @@ public class ClientController {
                                         @RequestParam("familyStatus") String familyStatus,
                                         @RequestParam("isVip") String isVip) {
 
-        clientDAO.save(new Client(firstName,lastName,dateOfBirth,INN,familyStatus));
+        clientDAO.save(new Client(firstName, lastName, dateOfBirth, INN, familyStatus));
         return ResponseEntity.ok().build();
     }
 
@@ -43,7 +43,7 @@ public class ClientController {
             path = "getclients",
             method = RequestMethod.GET,
             produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public ResponseEntity online() {
+    public ResponseEntity getclients() {
         List<Client> all = clientDAO.findAll();
         return ResponseEntity.ok().body(gson.toJson(all));
     }
@@ -57,7 +57,6 @@ public class ClientController {
         clientDAO.deleteById(id);
         return ResponseEntity.ok().build();
     }
-
 
 
 }
